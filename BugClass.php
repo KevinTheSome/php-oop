@@ -57,6 +57,13 @@ class Kukainies{
     function getALL(){
         var_dump($this);
     }
+    function quickSummary(){
+        echo "\n";
+        echo "name: " .$this->name."\n";
+        echo "size: " .$this->size."\n";
+        echo "color: " .$this->coler."\n";
+        echo "lifeLeaght: " .$this->lifeLeaght."\n";
+    }
 }
 
 class Snake extends Kukainies{
@@ -74,6 +81,10 @@ class Snake extends Kukainies{
         $this->Posienes = $Posienes;
         return $this->Posienes;
     }
+    function quickSummary(){
+        parent::quickSummary();
+        echo "Posienes: " .$this->Posienes."\n";
+    }
 }
 
 $Kukainis1 = new Kukainies("zirneklis",8,"LightGray",8);
@@ -86,3 +97,7 @@ $Kukainis1 ->getALL();
 $Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
 $Kukainis1 ->getALL();
 $cuska1 ->getALL();
+
+$Kukainis1 ->quickSummary();
+echo "\n";
+$cuska1 ->quickSummary();
