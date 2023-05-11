@@ -43,7 +43,7 @@ class Kukainies{
         $this->lifeLeaght = $lifeLeaght;
         return $this->lifeLeaght;
     }
-    //get and set the stuff?
+    //get and set proportys
 
     function propertieSetAndGet($propertie = "",$newValue = ""){
         if ($newValue == "" ){
@@ -51,18 +51,6 @@ class Kukainies{
         }
         $this->$propertie = $newValue;
         return $this->$propertie;
-    }
-
-    //get and set but multipel stuff?
-    function propertieSet($propertie = "",$newValue = ""){
-        $propertieSet = true;
-        while ($propertieSet = true){
-            if ($propertie = ""){
-                $propertieSet = false;
-            }
-            $this->$propertie = $newValue;
-            return $this->$propertie;
-        }
     }
 
     //specList Mostly for testing;
@@ -81,4 +69,7 @@ $Kukainis1 = new Kukainies(8,24,"red",69);
 $Kukainis1 ->setColer("Blue");
 $Kukainis1 -> propertieSetAndGet("legcount",16);
 $Kukainis1 ->specList();
-echo $Kukainis1 -> propertieSetAndGet("legcount");
+echo $Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
+var_dump($Kukainis1);
+$Kukainis1 ->specList();
+echo get_defined_vars($Kukainis1);
