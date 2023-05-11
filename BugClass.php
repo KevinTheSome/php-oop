@@ -2,20 +2,20 @@
 <?php   
 
 class Kukainies{
-    public $legcount;
+    public $name;
     private $size;
     public $coler;
     private $lifeLeaght;
 
-    function __construct(int $legcount, int $size, string $coler,int $lifeLeaght){
-        $this->legcount = $legcount;
+    function __construct(string $name, int $size, string $coler,int $lifeLeaght){
+        $this->name = $name;
         $this->size = $size;
         $this->coler = $coler;
         $this->lifeLeaght = $lifeLeaght;
     }
     //get the stuff
-    function getLegcount(){
-        return $this->legcount;
+    function getname(){
+        return $this->name;
     }
     function getSize(){
         return $this->size;
@@ -27,9 +27,9 @@ class Kukainies{
         return $this->lifeLeaght;
     }
     //set the stuff
-    function setLegcount(int $legcount){
-        $this->legcount = $legcount;
-        return $this->legcount;
+    function setname(int $name){
+        $this->name = $name;
+        return $this->name;
     }
     function setSize($size){
         $this->size = $size;
@@ -56,7 +56,7 @@ class Kukainies{
     //specList Mostly for testing;
     function specList(){
         echo "\n";
-        echo "legcount: " .$this->legcount ."\n";
+        echo "name: " .$this->name ."\n";
         echo "size: " . $this->size ."\n";
         echo "color: " . $this->coler ."\n";
         echo "lifeLeaght: " . $this->lifeLeaght ."\n";
@@ -64,7 +64,25 @@ class Kukainies{
     }
 }
 
+class Snake extends Kukainies{
+    public $Posienes;
+
+    public function __construct(string $name, int $size, string $coler,int $lifeLeaght,bool $Posienes){
+        parent::__construct($name,$size,$coler,$lifeLeaght);
+        $this->Posienes = $Posienes;
+    }
+
+    function getPosienes(){
+        return $this->Posienes;
+    }
+    function setPosienes($Posienes){
+        $this->Posienes = $Posienes;
+        return $this->Posienes;
+    }
+}
+
 $Kukainis1 = new Kukainies(8,24,"red",69);
+$cuska1 = new Snake(8,24,"red",69,TRUE);
 
 $Kukainis1 ->setColer("Blue");
 $Kukainis1 -> propertieSetAndGet("legcount",16);
@@ -72,4 +90,4 @@ $Kukainis1 ->specList();
 echo $Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
 var_dump($Kukainis1);
 $Kukainis1 ->specList();
-echo get_defined_vars($Kukainis1);
+var_dump($cuska1);
