@@ -54,13 +54,8 @@ class Kukainies{
     }
 
     //specList Mostly for testing;
-    function specList(){
-        echo "\n";
-        echo "name: " .$this->name ."\n";
-        echo "size: " . $this->size ."\n";
-        echo "color: " . $this->coler ."\n";
-        echo "lifeLeaght: " . $this->lifeLeaght ."\n";
-        echo "\n";
+    function getALL(){
+        var_dump($this);
     }
 }
 
@@ -81,13 +76,13 @@ class Snake extends Kukainies{
     }
 }
 
-$Kukainis1 = new Kukainies(8,24,"red",69);
-$cuska1 = new Snake(8,24,"red",69,TRUE);
+$Kukainis1 = new Kukainies("zirneklis",8,"LightGray",8);
+$cuska1 = new Snake("Odze",16,"black",8,TRUE);
 
 $Kukainis1 ->setColer("Blue");
 $Kukainis1 -> propertieSetAndGet("legcount",16);
-$Kukainis1 ->specList();
-echo $Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
-var_dump($Kukainis1);
-$Kukainis1 ->specList();
-var_dump($cuska1);
+$Kukainis1 -> propertieSetAndGet("legcount");
+$Kukainis1 ->getALL();
+$Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
+$Kukainis1 ->getALL();
+$cuska1 ->getALL();
