@@ -43,7 +43,7 @@ class Kukainies{
         $this->lifeLeaght = $lifeLeaght;
         return $this->lifeLeaght;
     }
-    //get and set proportys
+    //get and set stuff
 
     function propertieSetAndGet($propertie = "",$newValue = ""){
         if ($newValue == "" ){
@@ -53,10 +53,11 @@ class Kukainies{
         return $this->$propertie;
     }
 
-    //specList Mostly for testing;
+    //see all the stuff
     function getALL(){
         var_dump($this);
     }
+    //see all the stuff but var_dump
     function quickSummary(){
         echo "\n";
         echo "name: " .$this->name."\n";
@@ -68,7 +69,7 @@ class Kukainies{
 
 class Snake extends Kukainies{
     public $Posienes;
-
+    //dry - dont repeat yourself;
     public function __construct(string $name, int $size, string $coler,int $lifeLeaght,bool $Posienes){
         parent::__construct($name,$size,$coler,$lifeLeaght);
         $this->Posienes = $Posienes;
@@ -81,23 +82,40 @@ class Snake extends Kukainies{
         $this->Posienes = $Posienes;
         return $this->Posienes;
     }
+    //dry but Posienes;
     function quickSummary(){
         parent::quickSummary();
         echo "Posienes: " .$this->Posienes."\n";
     }
 }
-
+//new objects
 $Kukainis1 = new Kukainies("zirneklis",8,"LightGray",8);
 $cuska1 = new Snake("Odze",16,"black",8,TRUE);
 
-$Kukainis1 ->setColer("Blue");
-$Kukainis1 -> propertieSetAndGet("legcount",16);
-$Kukainis1 -> propertieSetAndGet("legcount");
-$Kukainis1 ->getALL();
-$Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
+// output after
 $Kukainis1 ->getALL();
 $cuska1 ->getALL();
-
 $Kukainis1 ->quickSummary();
 echo "\n";
 $cuska1 ->quickSummary();
+
+//change thing in objects
+$Kukainis1 ->setColer("Blue");
+$Kukainis1 -> propertieSetAndGet("legcount",16);
+$Kukainis1 -> propertieSetAndGet("NewproportyNeverSeen",64);
+$cuska1 ->setPosienes(false);
+
+// output after
+echo "\n";
+echo "Pēc izmaiņām \n";
+echo "================================================================\n";
+echo "\n";
+
+$Kukainis1 ->getALL();
+$cuska1 ->getALL();
+$Kukainis1 ->quickSummary();
+echo "\n";
+$cuska1 ->quickSummary();
+
+//can be used as output
+//echo $Kukainis1 -> propertieSetAndGet("legcount");
